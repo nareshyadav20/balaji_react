@@ -46,7 +46,7 @@ const AuthPage = () => {
 
         setLoading(true);
         
-        const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+        const endpoint = isLogin ? '/auth/login' : '/auth/register';
         const payload = isLogin ? { 
             email: formData.email, 
             password: formData.password 
@@ -57,7 +57,13 @@ const AuthPage = () => {
         };
 
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+            let API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+            
+            // Ensure API_URL ends with /api but doesn't double it
+            if (!API_URL.endsWith('/api')) {
+                API_URL = API_URL.endsWith('/') ? `${API_URL}api` : `${API_URL}/api`;
+            }
+
             console.log(`Attempting ${isLogin ? 'Login' : 'Register'} at: ${API_URL}${endpoint}`);
             console.log('Payload:', payload);
 
