@@ -1,0 +1,116 @@
+.page {
+  min-height: calc(100vh - var(--nav-h));
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 24px;
+  position: relative; overflow: hidden;
+}
+
+.container {
+  max-width: 640px; width: 100%;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 28px;
+  position: relative; z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity: .6; }
+  50%      { transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary-light); color: var(--primary);
+  font-size: 13px; font-weight: 700; letter-spacing: .5px;
+  padding: 7px 20px; border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.title { font-size: clamp(34px,6vw,56px); font-weight: 900; line-height: 1.1; color: var(--text-primary); }
+.sub   { font-size: 16px; color: var(--text-secondary); line-height: 1.7; max-width: 440px; }
+
+/* PHONE CARD */
+.phoneCard {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  background: linear-gradient(135deg, var(--primary), #7c3aed);
+  border-radius: 28px; padding: 48px 56px;
+  text-decoration: none; color: #fff;
+  box-shadow: 0 20px 60px var(--primary-glow);
+  transition: all var(--t);
+  width: 100%;
+}
+.phoneCard:hover { transform: translateY(-6px); box-shadow: 0 32px 80px var(--primary-glow); }
+
+.phoneRing {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  animation: ringPulse 2s ease-in-out infinite;
+}
+.phoneRing2 {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.phoneIcon { font-size: 36px; animation: shake 2s ease-in-out infinite; }
+@keyframes ringPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,.3); }
+  50%      { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
+}
+@keyframes shake {
+  0%,100% { transform: rotate(0deg); }
+  10%,30%,50%,70%,90% { transform: rotate(-12deg); }
+  20%,40%,60%,80% { transform: rotate(12deg); }
+}
+
+.phoneNumber {
+  font-size: clamp(28px,6vw,44px);
+  font-weight: 900; letter-spacing: 2px;
+}
+.phoneTap {
+  font-size: 15px; opacity: .85; font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* PILLS */
+.pills { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.pill {
+  padding: 8px 18px; border-radius: 100px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* SERVICES BOX */
+.servicesBox {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 28px; width: 100%;
+}
+.servicesBox h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
+.servicesList { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.serviceChip {
+  padding: 11px 16px; border-radius: 10px;
+  background: var(--bg-section); font-size: 13px; font-weight: 500;
+  color: var(--text-secondary); text-align: left;
+  border: 1px solid var(--border); transition: all var(--t);
+}
+.serviceChip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+
+.backLinks { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+@media (max-width: 500px) {
+  .phoneCard { padding: 36px 28px; }
+  .servicesList { grid-template-columns: 1fr; }
+  .backLinks { flex-direction: column; width: 100%; }
+  .backLinks a { text-align: center; justify-content: center; }
+}
