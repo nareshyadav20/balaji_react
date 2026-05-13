@@ -6,7 +6,13 @@ import styles from './Services.module.css'
 const SERVICES = [
   {
     id: 'internet',
-    icon: '🌐',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 -12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M2 12H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 2C14.501 4.738 15.922 8.245 16 12C15.922 15.755 14.501 19.262 12 22C9.499 19.262 8.078 15.755 8 12C8.078 8.245 9.499 4.738 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     titleKey: 'Internet & MeeSeva Services',
     descKey: 'One-stop solution for government services, internet access, and digital applications.',
     items: ['Birth Certificate','Death Certificate','Caste Certificate','Income Certificate',
@@ -17,7 +23,12 @@ const SERVICES = [
   },
   {
     id: 'realestate',
-    icon: '🏠',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 22V12H15V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     titleKey: 'Real Estate & Construction',
     descKey: 'Complete support for property-related services and construction activities.',
     items: ['Property Buying Support','Property Selling Support','Rental Assistance',
@@ -27,7 +38,13 @@ const SERVICES = [
   },
   {
     id: 'business',
-    icon: '💼',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 7V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 12V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     titleKey: 'Business Consultancy',
     descKey: 'Professional support for personal, local, and business-related services.',
     items: ['Business Registration','Shop Registration','GST Registration Guidance',
@@ -37,7 +54,12 @@ const SERVICES = [
   },
   {
     id: 'financial',
-    icon: '💰',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 1V23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M17 5H9.5C8.30653 5 7.16193 5.47411 6.31802 6.31802C5.47411 7.16193 5 8.30653 5 9.5C5 10.6935 5.47411 11.8381 6.31802 12.682C7.16193 13.5259 8.30653 14 9.5 14H14.5C15.6935 14 16.8381 14.4741 17.682 15.318C18.5259 16.1619 19 17.3065 19 18.5C19 19.6935 18.5259 20.8381 17.682 21.682C16.8381 22.5259 15.6935 23 14.5 23H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     titleKey: 'Financial & Tax Support',
     descKey: 'Support for financial planning and tax-related services for individuals and businesses.',
     items: ['PAN Card Services','Income Tax Return (ITR Filing)','Investment Documentation',

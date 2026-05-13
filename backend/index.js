@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const dns = require('dns');
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 const authRoutes = require('./routes/authRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 dotenv.config({ override: true });
 
@@ -45,6 +46,7 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/contact', contactRoutes);
 
 app.get('/', (req, res) => {
     res.send('Livora API is running...');

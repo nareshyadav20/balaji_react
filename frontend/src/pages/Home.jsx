@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import styles from './Home.module.css'
@@ -118,6 +119,15 @@ const serviceCards = [
 
 export default function Home() {
   const { t } = useLang()
+  const [currentImg, setCurrentImg] = useState(0);
+  const heroImages = ['/hero-1.png', '/hero-2.png', '/hero-3.png', '/hero-4.png'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImg(prev => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   return (
     <main className="page-enter">
@@ -182,12 +192,16 @@ export default function Home() {
           <div className={styles.heroVisual}>
             <div className={styles.heroImgWrapper}>
               <div className={styles.heroImgGlow} />
-              <img
-                src="/img-hero-team.png"
-                alt="Balaji Communication & Services team"
-                className={styles.heroImg}
-                data-slot="hero-team"
-              />
+              <div className={styles.carouselContainer}>
+                {heroImages.map((img, idx) => (
+                  <img
+                    key={img}
+                    src={img}
+                    alt={`Hero slide ${idx + 1}`}
+                    className={`${styles.heroImg} ${currentImg === idx ? styles.active : ''}`}
+                  />
+                ))}
+              </div>
               {/* Floating stat badge */}
               <div className={`${styles.floatBadge} ${styles.glass}`}>
                 <div className={styles.badgeIcon} style={{background: 'var(--success)'}}>
